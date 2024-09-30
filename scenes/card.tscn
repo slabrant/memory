@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://gsiud01sucfd"]
+
+[ext_resource type="Texture2D" uid="uid://b7vi70hcykvr" path="res://sprites/card_empty.png" id="1_5f8pa"]
+[ext_resource type="Script" path="res://scenes/card.gd" id="1_w05lk"]
+[ext_resource type="Texture2D" uid="uid://c8b6o6n8sht7q" path="res://sprites/card_1.png" id="2_nb3h0"]
+[ext_resource type="Texture2D" uid="uid://ddkjvvbdvetgf" path="res://sprites/card_8.png" id="3_0kuxn"]
+[ext_resource type="Texture2D" uid="uid://byxmwawfl2h4a" path="res://sprites/card_7.png" id="4_kppjc"]
+[ext_resource type="Texture2D" uid="uid://lojl74vt8e4b" path="res://sprites/card_6.png" id="5_3sq5k"]
+[ext_resource type="Texture2D" uid="uid://r7asbda3x1xs" path="res://sprites/card_5.png" id="6_8n46x"]
+[ext_resource type="Texture2D" uid="uid://b14ir1afx4cxf" path="res://sprites/card_4.png" id="7_ggrmk"]
+[ext_resource type="Texture2D" uid="uid://c6rmg1u83aryb" path="res://sprites/card_3.png" id="8_qf67e"]
+[ext_resource type="Texture2D" uid="uid://bo2h2y81k5sco" path="res://sprites/card_2.png" id="9_vd3d0"]
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_w05lk")
+
+[node name="EmptyCard" type="Sprite2D" parent="."]
+texture = ExtResource("1_5f8pa")
+
+[node name="ShapeSprite1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_nb3h0")
+
+[node name="ShapeSprite2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_vd3d0")
+
+[node name="ShapeSprite3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_qf67e")
+
+[node name="ShapeSprite4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_ggrmk")
+
+[node name="ShapeSprite5" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_8n46x")
+
+[node name="ShapeSprite6" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_3sq5k")
+
+[node name="ShapeSprite7" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_kppjc")
+
+[node name="ShapeSprite8" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_0kuxn")
