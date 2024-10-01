@@ -48,3 +48,13 @@ texture = ExtResource("4_kppjc")
 [node name="ShapeSprite8" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_0kuxn")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 7.0
+focus_mode = 0
+theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -12,7 +12,40 @@ extends Node2D
 @export var CARD_ID: int = 0:
 	set(value):
 		sprite = get("shape_sprite_" + "%d" % value)
-		sprite.show()
 		CARD_ID = value
-		return
 @export var sprite: Sprite2D
+@export var active: bool = false:
+	set(value):
+		if value:
+			sprite.show()
+		else:
+			sprite.hide()
+		active = value
+
+
+func _on_button_pressed() -> void:
+	if !get_parent().current_card:
+		get_parent().current_card = self
+		active = true
+		return
+		
+	if get_parent().current_card.CARD_ID == self.CARD_ID:
+		get_parent().current_card.queue_free()
+		queue_free()
+	get_parent().current_card = self
+	active = true
+	#if get_parent().current_card == self:
+		#get_parent().current_card = null
+		#return
+	#active = true
+	#print(get_parent().current_card)
+	#if get_parent().current_card:
+		#print(get_parent().current_card.CARD_ID)
+		#if get_parent().current_card.CARD_ID == CARD_ID:
+			#get_parent().current_card = null
+			#get_parent().current_card.queue_free()
+			#queue_free()
+		#else:
+			#get_parent().current_card.active = false
+			#active = false
+	#get_parent().current_card = self

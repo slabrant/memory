@@ -2,6 +2,8 @@ extends Node2D
 
 const CARD = preload("res://scenes/card.tscn")
 
+var current_card
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
