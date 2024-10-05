@@ -8,3 +8,12 @@ script = ExtResource("1_c66wx")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(53, 40)
 zoom = Vector2(6, 6)
+
+[node name="ShowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MatchTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]
+[connection signal="timeout" from="MatchTimer" to="." method="_on_match_timer_timeout"]

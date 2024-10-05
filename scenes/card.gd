@@ -9,6 +9,9 @@ extends Node2D
 @onready var shape_sprite_7: Sprite2D = $ShapeSprite7
 @onready var shape_sprite_8: Sprite2D = $ShapeSprite8
 
+var show_timer: Timer
+var match_timer: Timer
+
 @export var CARD_ID: int = 0:
 	set(value):
 		sprite = get("shape_sprite_" + "%d" % value)
@@ -23,29 +26,28 @@ extends Node2D
 		active = value
 
 
+func _ready() -> void:
+	show_timer = get_parent().show_timer
+	match_timer = get_parent().match_timer
+
+
 func _on_button_pressed() -> void:
+	if 0 < show_timer.time_left or 0 < match_timer.time_left:
+		return
+	
 	if !get_parent().current_card:
 		get_parent().current_card = self
 		active = true
 		return
-		
+	
+	if get_parent().current_card == self:
+		return
+	
 	if get_parent().current_card.CARD_ID == self.CARD_ID:
-		get_parent().current_card.queue_free()
-		queue_free()
-	get_parent().current_card = self
-	active = true
-	#if get_parent().current_card == self:
-		#get_parent().current_card = null
-		#return
-	#active = true
-	#print(get_parent().current_card)
-	#if get_parent().current_card:
-		#print(get_parent().current_card.CARD_ID)
-		#if get_parent().current_card.CARD_ID == CARD_ID:
-			#get_parent().current_card = null
-			#get_parent().current_card.queue_free()
-			#queue_free()
-		#else:
-			#get_parent().current_card.active = false
-			#active = false
-	#get_parent().current_card = self
+		get_parent().new_card = self
+		active = true
+		#get_parent().show_timer.stop()
+		get_parent().match_timer.start()
+	else:
+		active = true
+		get_parent().show_timer.start()
